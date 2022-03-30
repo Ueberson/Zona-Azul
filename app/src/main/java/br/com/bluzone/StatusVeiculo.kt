@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
 import com.google.android.material.snackbar.Snackbar
 
-class statusVeiculo : AppCompatActivity() {
+class StatusVeiculo : AppCompatActivity() {
 
     private lateinit var etPlaca: AppCompatEditText
     private lateinit var consultarBtn: AppCompatButton
@@ -81,10 +81,10 @@ class statusVeiculo : AppCompatActivity() {
         }
     }
 
-    //Função para ir para a irregularidade
+    //Função para ir para a Irregularidade
     private fun IrParaIrregularidade() {
 
-        val telairregularidade = Intent(this, irregularidade::class.java)
+        val telairregularidade = Intent(this, Irregularidade::class.java)
         startActivity(telairregularidade)
 
         //Função para Retornar a home

@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ffundo"
-
     tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="60dp"
+        />
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/menuButton"
-        android:background="@drawable/menu"
-        android:layout_width="35dp"
-        android:layout_height="40dp"
-        android:layout_gravity="left"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"/>
-
-    <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/btnTelaConsultar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="-160dp"
+        android:textColorHint="@color/white"
+        android:background="@color/teal_700"
+        android:hint="Consultar"
+
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTelaItinerario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:textColorHint="@color/white"
+        android:background="@color/teal_700"
+        android:hint="Itinerario"
+        />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        app:srcCompat="@drawable/logo"
-        android:contentDescription="TODO" />
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="-190dp"
+        android:background="@drawable/logotipo"/>
+
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

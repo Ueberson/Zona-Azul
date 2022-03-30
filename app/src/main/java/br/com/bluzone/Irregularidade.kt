@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 
-class irregularidade : AppCompatActivity() {
+class Irregularidade : AppCompatActivity() {
     private lateinit var backBtn: AppCompatButton
     private lateinit var homeBtn: AppCompatButton
     private lateinit var enviarBtn: AppCompatButton

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ffundo"
-    tools:context=".statusVeiculo">
+    tools:context=".StatusVeiculo">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/homeBtn"
@@ -61,7 +61,7 @@
         android:hint="Consultar"/>
 
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/statusTV"
         android:background="@color/white"
         android:hint="status do ticket e prazo."
