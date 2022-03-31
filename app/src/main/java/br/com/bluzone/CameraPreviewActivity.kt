@@ -39,16 +39,13 @@ class CameraPreviewActivity : AppCompatActivity() {
 
     //executor de thread separada
     private lateinit var imgCaptureExecutor: ExecutorService
-    private lateinit var voltarBtn: AppCompatButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera_preview)
 
-        voltarBtn = findViewById(R.id.voltarFoto)
-        voltarBtn.setOnClickListener{
-            voltarFoto()
-        }
+
 
         binding = ActivityCameraPreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -68,10 +65,7 @@ class CameraPreviewActivity : AppCompatActivity() {
             }
         }
     }
-    private fun voltarFoto(){
-        val telaFoto = Intent(this, Irregularidade::class.java)
-        startActivity(telaFoto)
-    }
+
     private fun startCamera() {
         cameraProviderFeature.addListener({
 
