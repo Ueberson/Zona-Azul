@@ -1,5 +1,6 @@
 package br.com.bluzone
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatButton
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -37,10 +39,16 @@ class CameraPreviewActivity : AppCompatActivity() {
 
     //executor de thread separada
     private lateinit var imgCaptureExecutor: ExecutorService
+    private lateinit var voltarBtn: AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera_preview)
+
+        voltarBtn = findViewById(R.id.voltarFoto)
+        voltarBtn.setOnClickListener{
+            voltarFoto()
+        }
 
         binding = ActivityCameraPreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -60,7 +68,10 @@ class CameraPreviewActivity : AppCompatActivity() {
             }
         }
     }
-
+    private fun voltarFoto(){
+        val telaFoto = Intent(this, Irregularidade::class.java)
+        startActivity(telaFoto)
+    }
     private fun startCamera() {
         cameraProviderFeature.addListener({
 
