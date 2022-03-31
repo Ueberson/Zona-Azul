@@ -34,6 +34,9 @@ class StatusVeiculo : AppCompatActivity() {
 
         //Botão para voltar a tela
         backBtn = findViewById(R.id.backBtn)
+        backBtn.setOnClickListener{
+            VoltarParaHome()
+        }
 
         //Edit Text para consultar a placa
 
@@ -49,7 +52,6 @@ class StatusVeiculo : AppCompatActivity() {
         consultarBtn = findViewById(R.id.consultarBtn)
         consultarBtn.setOnClickListener {
             verificarStatus()
-
         }
         //Texto para mostar o status
         statusTV = findViewById(R.id.statusTV)
@@ -57,10 +59,9 @@ class StatusVeiculo : AppCompatActivity() {
         //Botão para mudar para tela de Irregularidade
         registraBtn = findViewById(R.id.registraBtn)
         registraBtn.setOnClickListener {
-
-            IrParaIrregularidade()
-
+            IrTelaIrregularidade()
         }
+
 
 
     }
@@ -82,17 +83,20 @@ class StatusVeiculo : AppCompatActivity() {
     }
 
     //Função para ir para a Irregularidade
-    private fun IrParaIrregularidade() {
-
-        val telairregularidade = Intent(this, Irregularidade::class.java)
-        startActivity(telairregularidade)
-
-        //Função para Retornar a home
+    private fun IrTelaIrregularidade(){
+        val telaIrregularidade = Intent(this, Irregularidade::class.java)
+        startActivity(telaIrregularidade)
     }
 
     private fun IrParaHome() {
         val telaHome = Intent(this, MainActivity::class.java)
         startActivity(telaHome)
     }
+    private fun VoltarParaHome() {
+        val telaHome = Intent(this, MainActivity::class.java)
+        startActivity(telaHome)
+    }
+
+
 }
 

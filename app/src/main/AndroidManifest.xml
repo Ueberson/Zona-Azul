@@ -19,7 +19,6 @@
         <activity
             android:name=".TelaCaptura"
             android:exported="false">
-
         </activity>
         <activity
             android:name=".MainActivity"

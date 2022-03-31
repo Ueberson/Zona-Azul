@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/logo"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="140dp"
         android:layout_marginTop="60dp"
         />
 
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="-160dp"
+        android:layout_marginLeft="-180dp"
         android:textColorHint="@color/white"
         android:background="@color/teal_700"
         android:hint="Consultar"
@@ -42,7 +42,7 @@
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="250dp"
         android:layout_marginLeft="-190dp"
         android:background="@drawable/logotipo"/>
 
