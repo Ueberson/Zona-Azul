@@ -3,7 +3,9 @@ package br.com.bluzone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.CompoundButton
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatCheckBox
 import br.com.bluzone.databinding.ActivityMainBinding
 
 class Irregularidade : AppCompatActivity() {
@@ -14,6 +16,8 @@ class Irregularidade : AppCompatActivity() {
     private lateinit var secondBtn: AppCompatButton
     private lateinit var thirdBtn: AppCompatButton
     private lateinit var fourthBtn: AppCompatButton
+    private lateinit var checkInvalid: AppCompatCheckBox
+    private lateinit var checkProibid: AppCompatCheckBox
 
 
 
@@ -21,7 +25,12 @@ class Irregularidade : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_irregularidade)
 
+        //Botões para checkar a irregularidade de estacionamento
+        //checkInvalid = findViewById(R.id.checkInvalido)
+       //checkInvalid.setOnClickListener(object : CompoundButton.OnCheckedChangeListener)
 
+        //checkProibid =findViewById(R.id.checkProibido)
+       //checkInvalid.setOnClickListener{object : CompoundButton.OnCheckedChangeListener}
 
         //botão para voltar para a home
         homeBtn = findViewById(R.id.homeButton)
