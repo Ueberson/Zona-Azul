@@ -31,7 +31,7 @@
 
         </activity>
         <activity
-            android:name=".Irregularidade"
+            android:name=".IrregularidadeActivity"
             android:exported="false" />
         <activity
             android:name=".StatusVeiculo"

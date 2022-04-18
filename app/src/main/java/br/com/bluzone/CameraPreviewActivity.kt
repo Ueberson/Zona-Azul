@@ -1,14 +1,19 @@
 package br.com.bluzone
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.ImageDecoder
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -19,10 +24,9 @@ import androidx.core.content.ContextCompat
 import br.com.bluzone.databinding.ActivityCameraPreviewBinding
 import com.google.common.util.concurrent.ListenableFuture
 import java.io.File
-import java.lang.Exception
-import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+
 
 class CameraPreviewActivity : AppCompatActivity() {
 
@@ -40,15 +44,35 @@ class CameraPreviewActivity : AppCompatActivity() {
     //executor de thread separada
     private lateinit var imgCaptureExecutor: ExecutorService
 
+    private lateinit var first: AppCompatButton
+    private lateinit var second: AppCompatButton
+    private lateinit var third: AppCompatButton
+    private lateinit var fourth: AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera_preview)
 
-
-
         binding = ActivityCameraPreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        //Botão para adicionar a primeira foto
+       // first = findViewById(R.id.first)
+
+
+        //Botão para adicionar a segunda foto
+        //second = findViewById(R.id.second)
+
+
+        //Botão para adicionar a terceira foto
+       // third = findViewById(R.id.third)
+
+
+        //Botão para adicionar a quarta foto
+       // fourth = findViewById(R.id.fourth)
+
+
 
         cameraProviderFeature = ProcessCameraProvider.getInstance(this)
         cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
@@ -70,6 +94,7 @@ class CameraPreviewActivity : AppCompatActivity() {
         cameraProviderFeature.addListener({
 
             imageCapture = ImageCapture.Builder().build()
+
 
             val cameraProvider = cameraProviderFeature.get()
             val preview = Preview.Builder().build().also {
@@ -104,6 +129,10 @@ class CameraPreviewActivity : AppCompatActivity() {
                 object : ImageCapture.OnImageSavedCallback {
                     override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                         Log.i("CameraPreview", "A imagem foi salva no diretorio: ${file.toURI()}")
+                        //para bitmap
+                        val bitmap =
+                            MediaStore.Images.Media.getBitmap(contentResolver, outputFileResults.savedUri)
+
                     }
 
                     override fun onError(exception: ImageCaptureException) {
@@ -114,6 +143,21 @@ class CameraPreviewActivity : AppCompatActivity() {
                     }
                 }
             )
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+
+            if (requestCode == MediaUtils.CAMERA_REQUEST_CODE) {
+                val photo: Bitmap? = data?.extras?.get("data") as Bitmap?
+
+          //  this.finish()
+           // val intent = Intent()   //
+            //startActivity()
+                //todo use photo para carregar a view
+            }
         }
     }
 

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ffundo"
-    tools:context=".Irregularidade">
+    tools:context=".IrregularidadeActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/homeButton"
@@ -56,7 +56,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="80dp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageView
         android:id="@+id/third"
         android:background="@drawable/addfoto"
         android:layout_width="100dp"

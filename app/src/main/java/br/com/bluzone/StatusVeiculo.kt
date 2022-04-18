@@ -84,7 +84,7 @@ class StatusVeiculo : AppCompatActivity() {
 
     //Função para ir para a Irregularidade
     private fun IrTelaIrregularidade(){
-        val telaIrregularidade = Intent(this, Irregularidade::class.java)
+        val telaIrregularidade = Intent(this, IrregularidadeActivity::class.java)
         startActivity(telaIrregularidade)
     }
 

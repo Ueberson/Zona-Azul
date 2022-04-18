@@ -3,21 +3,21 @@ package br.com.bluzone
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CompoundButton
+import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatCheckBox
-import br.com.bluzone.databinding.ActivityMainBinding
 
-class Irregularidade : AppCompatActivity() {
+class IrregularidadeActivity : AppCompatActivity() {
     private lateinit var backBtn: AppCompatButton
     private lateinit var homeBtn: AppCompatButton
     private lateinit var enviarBtn: AppCompatButton
     private lateinit var firstBtn: AppCompatButton
     private lateinit var secondBtn: AppCompatButton
-    private lateinit var thirdBtn: AppCompatButton
+    private lateinit var thirdImgView: ImageView
     private lateinit var fourthBtn: AppCompatButton
     private lateinit var checkInvalid: AppCompatCheckBox
     private lateinit var checkProibid: AppCompatCheckBox
+
 
 
 
@@ -26,7 +26,7 @@ class Irregularidade : AppCompatActivity() {
         setContentView(R.layout.activity_irregularidade)
 
         //Botões para checkar a irregularidade de estacionamento
-        //checkInvalid = findViewById(R.id.checkInvalido)
+       // checkInvalid = findViewById(R.id.checkInvalido)
        //checkInvalid.setOnClickListener(object : CompoundButton.OnCheckedChangeListener)
 
         //checkProibid =findViewById(R.id.checkProibido)
@@ -55,10 +55,12 @@ class Irregularidade : AppCompatActivity() {
             IrParaCaptura()
         }
         //Botão para adicionar a terceira foto
-        thirdBtn = findViewById(R.id.third)
-        thirdBtn.setOnClickListener{
+        thirdImgView = findViewById(R.id.third)
+        thirdImgView.setOnClickListener{
             IrParaCaptura()
         }
+        //thirdImgView.setImageBitmap()
+
         //Botão para adicionar a quarta foto
         fourthBtn = findViewById(R.id.fourth)
         fourthBtn.setOnClickListener{
@@ -87,6 +89,5 @@ class Irregularidade : AppCompatActivity() {
         val telaCaptura = Intent(this, TelaCaptura::class.java)
         startActivity(telaCaptura)
     }
-
 
 }
