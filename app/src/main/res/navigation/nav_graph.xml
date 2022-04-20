@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/baseFragment">
+
+    <fragment
+        android:id="@+id/baseFragment"
+        android:name="br.com.bluzone.BaseFragment"
+        android:label="BaseFragment"
+        tools:layout="@layout/fragment_base" >
+        <action
+            android:id="@+id/action_baseFragment_to_consultaFragment"
+            app:destination="@id/consultaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/consultaFragment"
+        android:name="br.com.bluzone.ConsultaFragment"
+        android:label="ConsultaFragment"
+        tools:layout="@layout/fragment_consulta" >
+        <action
+            android:id="@+id/action_consultaFragment_to_irregularidadeFragment"
+            app:destination="@id/irregularidadeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/irregularidadeFragment"
+        android:name="br.com.bluzone.ConsultaFragment"
+        android:label="ConsultaFragment"
+        tools:layout="@layout/fragment_irregularidade" >
+        <action
+            android:id="@+id/action_irregularidadeFragment_to_cameraPreview"
+            app:destination="@id/cameraPreview" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cameraPreview"
+        android:name="br.com.bluzone.CameraPreviewFragment"
+        android:label="CameraPreview"
+        tools:layout="@layout/fragment_camerapreview" />
+
+
+</navigation>
