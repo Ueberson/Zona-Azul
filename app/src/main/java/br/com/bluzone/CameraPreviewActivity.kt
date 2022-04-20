@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.graphics.ImageDecoder
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
@@ -21,11 +19,14 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import br.com.bluzone.databinding.ActivityCameraPreviewBinding
 import com.google.common.util.concurrent.ListenableFuture
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import kotlin.random.Random
 
 
 class CameraPreviewActivity : AppCompatActivity() {
@@ -38,9 +39,6 @@ class CameraPreviewActivity : AppCompatActivity() {
     //Selecionar a camera desejada
     private lateinit var cameraSelector: CameraSelector
 
-    //imagem capturada
-    private var imageCapture: ImageCapture? = null
-
     //executor de thread separada
     private lateinit var imgCaptureExecutor: ExecutorService
 
@@ -49,6 +47,11 @@ class CameraPreviewActivity : AppCompatActivity() {
     private lateinit var third: AppCompatButton
     private lateinit var fourth: AppCompatButton
 
+    //imagem capturada
+    private var imageCapture: ImageCapture? = null
+
+    private val viewModel: BaseViewModel by viewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera_preview)
@@ -56,6 +59,7 @@ class CameraPreviewActivity : AppCompatActivity() {
         binding = ActivityCameraPreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        observer()
 
         //Botão para adicionar a primeira foto
        // first = findViewById(R.id.first)
@@ -83,12 +87,14 @@ class CameraPreviewActivity : AppCompatActivity() {
 
         //evento do clique para chamar o metodo de tirar foto
         binding.btnTirarFoto.setOnClickListener {
-            takePhoto()
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                blinkPreview()
+//            takePhoto()
+//            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+//                blinkPreview()
+
+            viewModel.test(Random.nextInt().toString())
             }
         }
-    }
+
 
     private fun startCamera() {
         cameraProviderFeature.addListener({
@@ -171,4 +177,11 @@ class CameraPreviewActivity : AppCompatActivity() {
         }, 100)
     }
 
+    private fun observer() {
+
+        viewModel.test.observe(this, Observer {
+            binding.title.text = it
+        } )
+
+    }
 }

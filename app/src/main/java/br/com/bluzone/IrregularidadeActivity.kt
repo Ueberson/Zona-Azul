@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.lifecycle.Observer
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class IrregularidadeActivity : AppCompatActivity() {
     private lateinit var backBtn: AppCompatButton
@@ -18,8 +21,7 @@ class IrregularidadeActivity : AppCompatActivity() {
     private lateinit var checkInvalid: AppCompatCheckBox
     private lateinit var checkProibid: AppCompatCheckBox
 
-
-
+    private val viewModel: BaseViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,16 +51,19 @@ class IrregularidadeActivity : AppCompatActivity() {
         firstBtn.setOnClickListener{
             IrParaCaptura()
         }
+
         //Botão para adicionar a segunda foto
         secondBtn = findViewById(R.id.second)
         secondBtn.setOnClickListener{
             IrParaCaptura()
         }
+
         //Botão para adicionar a terceira foto
         thirdImgView = findViewById(R.id.third)
         thirdImgView.setOnClickListener{
             IrParaCaptura()
         }
+
         //thirdImgView.setImageBitmap()
 
         //Botão para adicionar a quarta foto
@@ -66,8 +71,6 @@ class IrregularidadeActivity : AppCompatActivity() {
         fourthBtn.setOnClickListener{
             IrParaCaptura()
         }
-
-
 
         //Botão para enviar a irregularide
         //enviarBtn = findViewById(R.id.enviarBtn)
@@ -84,10 +87,10 @@ class IrregularidadeActivity : AppCompatActivity() {
         val telaConsulta = Intent(this, StatusVeiculo::class.java)
         startActivity(telaConsulta)
     }
+
     //Função para acessar a tela de captura
     private fun IrParaCaptura() {
         val telaCaptura = Intent(this, TelaCaptura::class.java)
         startActivity(telaCaptura)
     }
-
 }
