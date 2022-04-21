@@ -5,6 +5,6 @@ import org.koin.dsl.module
 
 object Module {
     val module = module {
-        viewModel { BaseViewModel() }
+        single { BaseViewModel() }
     }
 }
