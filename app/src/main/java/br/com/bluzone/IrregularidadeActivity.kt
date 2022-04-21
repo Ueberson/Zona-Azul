@@ -92,21 +92,21 @@ class IrregularidadeActivity : AppCompatActivity() {
 
     //Função para acessar a tela de captura
     private fun IrParaCaptura() {
-        //solicitar permissao
-        cameraProviderResult.launch(android.Manifest.permission.CAMERA)
-        val telaCaptura = Intent(this, TelaCaptura::class.java)
-        startActivity(telaCaptura)
+//        //solicitar permissao
+//        cameraProviderResult.launch(android.Manifest.permission.CAMERA)
+//        val telaCaptura = Intent(this, TelaCaptura::class.java)
+//        startActivity(telaCaptura)
     }
     private val cameraProviderResult =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
             if (it) {
               //  abrirTelaPreview()
             } else {
-                Snackbar.make(
-                   // binding.root,
-                    "Permissao de camera negada",
-                    Snackbar.LENGTH_INDEFINITE
-                ).show()
+//                Snackbar.make(
+//                   // binding.root,
+//                    "Permissao de camera negada",
+//                    Snackbar.LENGTH_INDEFINITE
+//                ).show()
             }
         }
 
