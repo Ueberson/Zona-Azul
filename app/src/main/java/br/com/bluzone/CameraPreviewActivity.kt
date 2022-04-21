@@ -19,14 +19,12 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Observer
 import br.com.bluzone.databinding.ActivityCameraPreviewBinding
 import com.google.common.util.concurrent.ListenableFuture
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import kotlin.random.Random
 
 
 class CameraPreviewActivity : AppCompatActivity() {
@@ -59,10 +57,8 @@ class CameraPreviewActivity : AppCompatActivity() {
         binding = ActivityCameraPreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        observer()
-
         //Botão para adicionar a primeira foto
-       // first = findViewById(R.id.first)
+        // first = findViewById(R.id.first)
 
 
         //Botão para adicionar a segunda foto
@@ -70,12 +66,11 @@ class CameraPreviewActivity : AppCompatActivity() {
 
 
         //Botão para adicionar a terceira foto
-       // third = findViewById(R.id.third)
+        // third = findViewById(R.id.third)
 
 
         //Botão para adicionar a quarta foto
-       // fourth = findViewById(R.id.fourth)
-
+        // fourth = findViewById(R.id.fourth)
 
 
         cameraProviderFeature = ProcessCameraProvider.getInstance(this)
@@ -90,10 +85,8 @@ class CameraPreviewActivity : AppCompatActivity() {
 //            takePhoto()
 //            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 //                blinkPreview()
-
-            viewModel.test(Random.nextInt().toString())
-            }
         }
+    }
 
 
     private fun startCamera() {
@@ -137,14 +130,19 @@ class CameraPreviewActivity : AppCompatActivity() {
                         Log.i("CameraPreview", "A imagem foi salva no diretorio: ${file.toURI()}")
                         //para bitmap
                         val bitmap =
-                            MediaStore.Images.Media.getBitmap(contentResolver, outputFileResults.savedUri)
+                            MediaStore.Images.Media.getBitmap(
+                                contentResolver,
+                                outputFileResults.savedUri
+                            )
 
                     }
 
                     override fun onError(exception: ImageCaptureException) {
-                        Toast.makeText(binding.root.context,
+                        Toast.makeText(
+                            binding.root.context,
                             "Erro ao salvar a foto",
-                            Toast.LENGTH_LONG).show()
+                            Toast.LENGTH_LONG
+                        ).show()
                         Log.e("CameraPreview", "Excecao ao gravar arquivo da foto: ${exception}")
                     }
                 }
@@ -158,30 +156,51 @@ class CameraPreviewActivity : AppCompatActivity() {
 
             if (requestCode == MediaUtils.CAMERA_REQUEST_CODE) {
                 val photo: Bitmap? = data?.extras?.get("data") as Bitmap?
+                val uri = ""
+                val base64 = MediaUtils().parseBitmapToBase64(photo)
 
-          //  this.finish()
-           // val intent = Intent()   //
-            //startActivity()
+                //ToDo converter de base64 para Bitmap (MediaUtils)
+
+                when (viewModel.getImageIdentifier()) {
+                    1 -> {
+                        //1a ação
+                        viewModel.setUriImg1("banana")
+                    }
+
+                    2 -> {
+                        //1a ação
+                        viewModel.setUriImg2(base64)
+                    }
+
+                    3 -> {
+
+                    }
+
+                    4 -> {
+
+                    }
+
+                    else -> {
+                        //
+                    }
+                }
+
+
+                //  this.finish()
+                // val intent = Intent()   //
+                //startActivity()
                 //todo use photo para carregar a view
             }
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun blinkPreview(){
+    private fun blinkPreview() {
         binding.root.postDelayed({
             binding.root.foreground = ColorDrawable(Color.WHITE)
             binding.root.postDelayed({
                 binding.root.foreground = null
             }, 50)
         }, 100)
-    }
-
-    private fun observer() {
-
-        viewModel.test.observe(this, Observer {
-            binding.title.text = it
-        } )
-
     }
 }

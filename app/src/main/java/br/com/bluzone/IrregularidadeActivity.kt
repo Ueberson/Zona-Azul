@@ -4,12 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatCheckBox
-import androidx.lifecycle.Observer
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class IrregularidadeActivity : AppCompatActivity() {
@@ -51,18 +48,21 @@ class IrregularidadeActivity : AppCompatActivity() {
         //Botão para adicionar a primeira foto
         firstBtn = findViewById(R.id.first)
         firstBtn.setOnClickListener{
+            viewModel.setImageIdentifier(1)
             IrParaCaptura()
         }
 
         //Botão para adicionar a segunda foto
         secondBtn = findViewById(R.id.second)
         secondBtn.setOnClickListener{
+            viewModel.setImageIdentifier(2)
             IrParaCaptura()
         }
 
         //Botão para adicionar a terceira foto
         thirdImgView = findViewById(R.id.third)
         thirdImgView.setOnClickListener{
+            viewModel.setImageIdentifier(3)
             IrParaCaptura()
         }
 
@@ -71,6 +71,7 @@ class IrregularidadeActivity : AppCompatActivity() {
         //Botão para adicionar a quarta foto
         fourthBtn = findViewById(R.id.fourth)
         fourthBtn.setOnClickListener{
+            viewModel.setImageIdentifier(4)
             IrParaCaptura()
         }
 

@@ -10,9 +10,6 @@
         android:name="br.com.bluzone.BaseFragment"
         android:label="BaseFragment"
         tools:layout="@layout/fragment_base" >
-        <action
-            android:id="@+id/action_baseFragment_to_consultaFragment"
-            app:destination="@id/consultaFragment" />
     </fragment>
 
     <fragment
@@ -20,19 +17,13 @@
         android:name="br.com.bluzone.ConsultaFragment"
         android:label="ConsultaFragment"
         tools:layout="@layout/fragment_consulta" >
-        <action
-            android:id="@+id/action_consultaFragment_to_irregularidadeFragment"
-            app:destination="@id/irregularidadeFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/irregularidadeFragment"
-        android:name="br.com.bluzone.ConsultaFragment"
-        android:label="ConsultaFragment"
+        android:name="br.com.bluzone.IrregularidadeFragment"
+        android:label="IrregularidadeFragment"
         tools:layout="@layout/fragment_irregularidade" >
-        <action
-            android:id="@+id/action_irregularidadeFragment_to_cameraPreview"
-            app:destination="@id/cameraPreview" />
     </fragment>
 
     <fragment

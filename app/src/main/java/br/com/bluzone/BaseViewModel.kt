@@ -1,20 +1,23 @@
 package br.com.bluzone
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class BaseViewModel : ViewModel() {
+    private var imageIdentifier = 1
+
     private var img1 = ""
     private var img2 = ""
     private var img3 = ""
     private var img4 = ""
 
-    private val _test = MutableLiveData<String>()
-    val test: LiveData<String> = _test
+    //Setter
+    fun setImageIdentifier(int: Int) {
+        imageIdentifier = int
+    }
 
-    fun test(string: String) {
-      _test.value = string
+    //Getter
+    fun getImageIdentifier(): Int {
+        return imageIdentifier
     }
 
     fun setUriImg1 (uri: String) {
@@ -33,4 +36,7 @@ class BaseViewModel : ViewModel() {
         img4 = uri
     }
 
+    fun getUriImg1(): String {
+        return this.img1
+    }
 }
