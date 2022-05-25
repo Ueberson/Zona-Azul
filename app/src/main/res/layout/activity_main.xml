@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,9 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/logo"
         android:layout_marginLeft="140dp"
-        android:layout_marginTop="60dp"
-        />
-
+        android:layout_marginTop="60dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTelaConsultar"
@@ -24,9 +22,7 @@
         android:layout_marginLeft="-180dp"
         android:textColorHint="@color/white"
         android:background="@color/teal_700"
-        android:hint="Consultar"
-
-        />
+        android:hint="Consultar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnTelaItinerario"
@@ -36,8 +32,8 @@
         android:layout_marginLeft="30dp"
         android:textColorHint="@color/white"
         android:background="@color/teal_700"
-        android:hint="Itinerario"
-        />
+        android:hint="Itinerario" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="150dp"
         android:layout_height="40dp"
@@ -45,7 +41,5 @@
         android:layout_marginTop="250dp"
         android:layout_marginLeft="-190dp"
         android:background="@drawable/logotipo"/>
-
-
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatCheckBox
 
 class IrregularidadeActivity : AppCompatActivity() {
+
     private lateinit var backBtn: AppCompatButton
     private lateinit var homeBtn: AppCompatButton
     private lateinit var enviarBtn: AppCompatButton
